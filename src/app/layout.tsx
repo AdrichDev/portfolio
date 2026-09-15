@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Press_Start_2P } from "next/font/google";
 
 import { PROFILE } from "@/modules/profile/profile";
+import { SITE_URL } from "@/shared/lib/site-url";
 
 import "./globals.css";
 
@@ -27,11 +28,17 @@ const PAGE_DESCRIPTION =
   "Portfolio de Adrián Chozas Vinuesa, desarrollador de aplicaciones multiplataforma en Madrid. Trabajador Social durante más de doce años, ahora centrado en React, Next.js, TypeScript, Tailwind CSS y Power Platform.";
 
 /**
- * No `openGraph.images` on purpose: a relative image URL needs `metadataBase`,
- * and the production domain is not decided yet. Inventing one would produce
- * previews pointing at a host that does not exist.
+ * The preview image is not listed here: `app/opengraph-image.tsx` is picked up
+ * by the file convention, and Next fills in `og:image` plus its type and
+ * dimensions. `twitter.images` is then inherited from `openGraph.images`, so
+ * `card` is the only Twitter field worth stating.
+ *
+ * `metadataBase` is derived from the environment rather than hardcoded — the
+ * production domain is still undecided, and a guessed host would ship previews
+ * pointing at nothing. See `shared/lib/site-url` for the precedence chain.
  */
 export const metadata: Metadata = {
+  metadataBase: SITE_URL,
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   authors: [{ name: PROFILE.name, url: "https://github.com/AdrichDev" }],
@@ -41,6 +48,11 @@ export const metadata: Metadata = {
     description: PAGE_DESCRIPTION,
     type: "profile",
     locale: "es_ES",
+    siteName: PAGE_TITLE,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
