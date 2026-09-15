@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Palette
+   ---------------------------------------------------------------------------
+   A deliberately limited 16-bit arcade set: two CRT surfaces, one phosphor
+   text colour, four saturated Neo Geo accents. Names are semantic (role), not
+   descriptive (hue), so a repaint later is a one-line change per token.
+
+   Declared in a plain `@theme` block (not `inline`) on purpose: we want the
+   `--color-*` custom properties emitted on `:root` so hand-written CSS below
+   can reference them too.
+   --------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces */
+  --color-crt-void: #0b0410;
+  --color-crt-panel: #1d1030;
+
+  /* Text */
+  --color-phosphor: #ece6f8;
+
+  /* Accents */
+  --color-signal-magenta: #ff2d88;
+  --color-signal-cyan: #22e0ff;
+  --color-signal-amber: #ffc31a;
+  --color-signal-green: #4dff9f;
+}
+
+/* ---------------------------------------------------------------------------
+   Type pairing (explicit decision)
+   ---------------------------------------------------------------------------
+   Press Start 2P is a pixel display face: single weight, very wide, no real
+   descender room. It is unreadable in running text, so it is confined to the
+   `font-display` role — headings, labels and UI chrome only.
+
+   IBM Plex Mono carries every paragraph as `font-body`. It keeps the terminal
+   feel but is actually designed for reading at small sizes.
+
+   `@theme inline` so the utilities resolve straight to the `next/font`
+   variables injected on <html> by the root layout.
+   --------------------------------------------------------------------------- */
+@theme inline {
+  --font-display: var(--font-press-start-2p);
+  --font-body: var(--font-ibm-plex-mono);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  /*
+   * The scanline texture itself, hoisted to a custom property because two
+   * unrelated surfaces wear it: the full-viewport CRT overlay and the hero
+   * portrait disc. Defining the gradient twice would let them drift apart.
+   */
+  :root {
+    --crt-scanline-image: repeating-linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0.42) 0,
+      rgb(0 0 0 / 0.42) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  /*
+   * Gotcha: `@theme inline` does NOT emit `--font-display` / `--font-body` on
+   * `:root` — it only inlines their values into the generated utilities. So
+   * hand-written CSS must reference the `next/font` variable directly, while
+   * markup uses the `font-display` / `font-body` utilities.
+   */
+  body {
+    background-color: var(--color-crt-void);
+    color: var(--color-phosphor);
+    font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  }
+
+  ::selection {
+    background-color: var(--color-signal-magenta);
+    color: var(--color-crt-void);
+  }
+}
+
+@layer components {
+  /* --- CRT treatment ---------------------------------------------------- */
+
+  /*
+   * Full-viewport overlay. `pointer-events: none` is load-bearing: without it
+   * the overlay would swallow every click and focus ring on the page.
+   */
+  .crt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /*
+   * 1px dark line every 3px. Kept at 0.42 alpha behind a 0.55 opacity layer
+   * (~8% effective darkening) so body text stays legible.
+   * Inset vertically so the drift animation never exposes a bare edge.
+   */
+  .crt-overlay__scanlines {
+    position: absolute;
+    inset: -6px 0;
+    background-image: var(--crt-scanline-image);
+    opacity: 0.55;
+    animation: arcade-scanline-drift 2.4s linear infinite;
+  }
+
+  .crt-overlay__vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 52%,
+      rgb(0 0 0 / 0.55) 100%
+    );
+  }
+
+  /* Faint cabinet grid behind the content. */
+  .crt-grid {
+    background-image:
+      linear-gradient(to bottom, rgb(34 224 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to right, rgb(34 224 255 / 0.05) 1px, transparent 1px);
+    background-size: 100% 48px, 48px 100%;
+  }
+
+  /* --- Arcade chrome ---------------------------------------------------- */
+
+  .crt-blink {
+    animation: arcade-blink 1.2s steps(1, end) infinite;
+  }
+
+  .crt-text-glow {
+    text-shadow: 0 0 0.4em currentColor;
+  }
+
+  /*
+   * Hard offset shadow — the classic pixel-UI bevel. Consumers recolour it by
+   * setting `--pixel-edge-color` (see ACCENT_EDGE in shared/ui/accent-tone).
+   */
+  .pixel-edge {
+    --pixel-edge-color: var(--color-crt-panel);
+    box-shadow: 4px 4px 0 0 var(--pixel-edge-color);
+  }
+
+  /* --- Character-select portrait ---------------------------------------- */
+
+  /*
+   * A perfect circle fights a pixel-art cabinet, so the circle never stands
+   * alone. The wrapper draws two hard corner brackets — a square reticle around
+   * a round subject, which is exactly the fighting-game portrait idiom — and
+   * the padding reserves the room the disc's rings and glow need.
+   */
+  .pixel-portrait {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+  }
+
+  .pixel-portrait::before,
+  .pixel-portrait::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0 solid var(--color-signal-amber);
+  }
+
+  .pixel-portrait::before {
+    top: 0;
+    left: 0;
+    border-top-width: 4px;
+    border-left-width: 4px;
+  }
+
+  .pixel-portrait::after {
+    right: 0;
+    bottom: 0;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+  }
+
+  /*
+   * Concentric rings via spread-only shadows rather than nested elements: they
+   * follow `border-radius`, cost no markup, and stay out of layout, so the
+   * portrait cannot push the hero wider than its box on a small viewport.
+   */
+  .pixel-portrait__disc {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px;
+    box-shadow:
+      0 0 0 4px var(--color-crt-void),
+      0 0 0 8px var(--color-signal-magenta),
+      0 0 0 12px var(--color-crt-void),
+      0 0 0 16px var(--color-signal-cyan),
+      0 0 2rem 0.5rem rgb(255 45 136 / 0.35);
+  }
+
+  /*
+   * Same texture and drift as the page overlay, clipped to the disc. Inset
+   * vertically so the 3px drift never exposes a bare edge.
+   */
+  .pixel-portrait__scanlines {
+    position: absolute;
+    inset: -6px 0;
+    background-image: var(--crt-scanline-image);
+    opacity: 0.5;
+    animation: arcade-scanline-drift 2.4s linear infinite;
+  }
+
+  /* --- Arcade menu selection ------------------------------------------- */
+
+  .arcade-nav__marker {
+    opacity: 0;
+  }
+
+  .arcade-nav__link:hover .arcade-nav__marker,
+  .arcade-nav__link:focus-visible .arcade-nav__marker {
+    opacity: 1;
+    animation: arcade-blink 1.2s steps(1, end) infinite;
+  }
+
+  /*
+   * Selected-item indicator with zero JavaScript: `:target` tells us which
+   * section the hash points at, `:has()` walks it back up to the matching menu
+   * entry. Browsers without `:has()` simply fall back to the hover/focus state.
+   */
+  body:has(#about:target) [data-nav-target="about"] .arcade-nav__marker,
+  body:has(#experience:target) [data-nav-target="experience"] .arcade-nav__marker,
+  body:has(#projects:target) [data-nav-target="projects"] .arcade-nav__marker {
+    opacity: 1;
+  }
+}
+
+@keyframes arcade-scanline-drift {
+  to {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes arcade-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion
+   ---------------------------------------------------------------------------
+   Non-negotiable: blinking and drifting scanlines are a seizure hazard, not a
+   style preference. Left unlayered so it outranks everything in @layer above.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .crt-overlay__scanlines,
+  .pixel-portrait__scanlines,
+  .crt-blink,
+  .arcade-nav__link:hover .arcade-nav__marker,
+  .arcade-nav__link:focus-visible .arcade-nav__marker {
+    animation: none !important;
+  }
+
+  .crt-blink {
+    opacity: 1 !important;
+  }
+}
