@@ -19,6 +19,8 @@ import { PALETTE } from "@/shared/ui/palette";
  * custom properties the site uses are meaningless here.
  */
 
+export const dynamic = "force-static";
+
 export const alt = `${PROFILE.name} — ${PROFILE.role}`;
 
 export const size = { width: 1200, height: 630 };

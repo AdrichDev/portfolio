@@ -25,20 +25,13 @@ const ibmPlexMono = IBM_Plex_Mono({
 const PAGE_TITLE = `${PROFILE.name} — ${PROFILE.role}`;
 
 const PAGE_DESCRIPTION =
-  "Portfolio de Adrián Chozas Vinuesa, desarrollador de aplicaciones multiplataforma en Madrid. Trabajador Social durante más de doce años, ahora centrado en React, Next.js, TypeScript, Tailwind CSS y Power Platform.";
+  "Portfolio de Adrián Chozas Vinuesa, Software Developer en Madrid. Trabajador Social durante más de 12 años, ahora centrado en React, Next.js, TypeScript, Tailwind CSS, IA y Power Platform.";
 
-/**
- * The preview image is not listed here: `app/opengraph-image.tsx` is picked up
- * by the file convention, and Next fills in `og:image` plus its type and
- * dimensions. `twitter.images` is then inherited from `openGraph.images`, so
- * `card` is the only Twitter field worth stating.
- *
- * `metadataBase` is derived from the environment rather than hardcoded — the
- * production domain is still undecided, and a guessed host would ship previews
- * pointing at nothing. See `shared/lib/site-url` for the precedence chain.
- */
+// A portable export has no public host until uploaded. Omit absolute previews
+// rather than publishing localhost; set NEXT_PUBLIC_SITE_URL when the host is known.
+const portableExport = process.env.PORTFOLIO_STATIC_EXPORT === "1" && !process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
-  metadataBase: SITE_URL,
+  metadataBase: portableExport ? undefined : SITE_URL,
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   authors: [{ name: PROFILE.name, url: "https://github.com/AdrichDev" }],
@@ -49,10 +42,12 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "es_ES",
     siteName: PAGE_TITLE,
-    url: "/",
+    url: portableExport ? undefined : "/",
+    ...(portableExport ? { images: [] } : {}),
   },
   twitter: {
     card: "summary_large_image",
+    ...(portableExport ? { images: [] } : {}),
   },
 };
 

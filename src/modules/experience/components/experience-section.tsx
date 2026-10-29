@@ -1,7 +1,11 @@
+"use client";
+
 import {
   EDUCATION_TIMELINE,
   WORK_TIMELINE,
 } from "@/modules/experience/experience-entries";
+import { useLanguage } from "@/shared/i18n/language";
+import { MESSAGES } from "@/shared/i18n/messages";
 import { ArcadeSection } from "@/shared/ui/arcade-section";
 
 import { TimelineList } from "./timeline-list";
@@ -13,21 +17,23 @@ import { TimelineList } from "./timeline-list";
  * three files to say something the same ladder already says.
  */
 export function ExperienceSection() {
+  const lang = useLanguage();
+  const t = MESSAGES[lang].experience;
   return (
     <ArcadeSection
       id="experience"
-      kicker="Fase 02"
-      title="Mapa de Niveles"
+      kicker={t.kicker}
+      title={t.title}
       tone="magenta"
     >
       <TimelineList
-        caption="Trayectoria profesional"
-        entries={WORK_TIMELINE}
+        caption={t.work}
+        entries={WORK_TIMELINE[lang]}
         tone="magenta"
       />
       <TimelineList
-        caption="Formación"
-        entries={EDUCATION_TIMELINE}
+        caption={t.education}
+        entries={EDUCATION_TIMELINE[lang]}
         tone="cyan"
       />
     </ArcadeSection>

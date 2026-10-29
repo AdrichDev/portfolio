@@ -21,13 +21,13 @@ export function SectionHeading({
   tone = "cyan",
 }: SectionHeadingProps) {
   return (
-    <header className="flex flex-col gap-4">
+    <header className="phase-heading flex flex-col gap-4">
       <p className="font-display text-[0.55rem] tracking-[0.35em] text-phosphor/60 uppercase">
         {kicker}
       </p>
       <h2
         id={id}
-        className={`crt-text-glow font-display text-lg leading-relaxed tracking-wider uppercase sm:text-2xl ${ACCENT_TEXT[tone]}`}
+        className={`phase-title crt-text-glow font-display text-lg leading-relaxed tracking-wider uppercase sm:text-2xl ${ACCENT_TEXT[tone]}`}
       >
         {title}
       </h2>

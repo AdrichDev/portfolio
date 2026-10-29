@@ -1,63 +1,28 @@
+import type { Lang } from "@/shared/i18n/language";
 import type { ProjectSummary } from "@/shared/types/project";
 
-/** Every repository below lives under this account. */
 const GITHUB_OWNER_URL = "https://github.com/AdrichDev";
 
-/** The repository list minus the URL the owner name already determines. */
-type ProjectSeed = Omit<ProjectSummary, "repoUrl">;
-
-/**
- * Real repositories from github.com/AdrichDev, ordered by how well they
- * represent current work. The two Java entries are earlier pieces and are kept
- * because they are part of the record; the ordering says the rest.
- */
-const PROJECT_SEEDS: readonly ProjectSeed[] = [
-  {
-    repo: "agents-agency",
-    description:
-      "Agencia para el desarrollo de agentes de inteligencia artificial.",
-    language: "TypeScript",
-    demoUrl: "https://agents-agency-mauve.vercel.app",
-  },
-  {
-    repo: "crm_creator",
-    description: "Herramienta para la creación de CRM a medida.",
-    language: "TypeScript",
-    demoUrl: "https://operaos-black.vercel.app",
-  },
-  {
-    repo: "gru_orchestrator",
-    description: "Orquestador de agentes y flujos de trabajo.",
-    language: "TypeScript",
-  },
-  {
-    repo: "nexus",
-    description: "Asistente personal inspirado en Jarvis.",
-    language: "Python",
-  },
-  {
-    repo: "vybe-ai-google_studio",
-    description:
-      "Aplicación de inteligencia artificial construida con Google AI Studio.",
-    language: "TypeScript",
-  },
-  {
-    repo: "Juego_Del_Ahorcado",
-    description: "Implementación del clásico juego del ahorcado.",
-    language: "Java",
-  },
-  {
-    repo: "NumerosLoteria",
-    description: "Generador de números aleatorios para sorteos de lotería.",
-    language: "Java",
-  },
+/** Pinned repositories verified against the public profile on 2026-09-15. */
+const PROJECT_SEEDS: readonly { repo: string; language: string; description: Record<Lang, string> }[] = [
+  { repo: "agents-agency", language: "TypeScript", description: { es: "Agencia de desarrollo de agentes de inteligencia artificial.", en: "Agency for building artificial intelligence agents." } },
+  { repo: "crm_creator", language: "TypeScript", description: { es: "Creador de CRM.", en: "CRM builder." } },
+  { repo: "gru_orchestrator", language: "TypeScript", description: { es: "Orquestador de agentes y workflows.", en: "Agent and workflow orchestrator." } },
+  { repo: "nexus", language: "Python", description: { es: "Asistente personal tipo Jarvis.", en: "Jarvis-style personal assistant." } },
+  { repo: "NumerosLoteria", language: "Java", description: { es: "Generador de números aleatorios de lotería.", en: "Random lottery number generator." } },
+  { repo: "portfolio", language: "TypeScript", description: { es: "Este portfolio retro: una aventura construida con Next.js, React y Tailwind CSS.", en: "This retro portfolio: an adventure built with Next.js, React and Tailwind CSS." } },
 ];
 
-/**
- * Derived rather than hand-written so the owner URL exists exactly once; a
- * typo in one of seven pasted links is the kind of bug nothing here would
- * catch.
- */
-export const PROJECTS: readonly ProjectSummary[] = PROJECT_SEEDS.map(
-  (seed) => ({ ...seed, repoUrl: `${GITHUB_OWNER_URL}/${seed.repo}` }),
-);
+function projects(lang: Lang): ProjectSummary[] {
+  return PROJECT_SEEDS.map((seed) => ({
+    repo: seed.repo,
+    language: seed.language,
+    description: seed.description[lang],
+    repoUrl: `${GITHUB_OWNER_URL}/${seed.repo}`,
+  }));
+}
+
+export const PROJECTS: Record<Lang, readonly ProjectSummary[]> = {
+  es: projects("es"),
+  en: projects("en"),
+};

@@ -44,3 +44,6 @@ next-env.d.ts
 /.atl
 /.serena
 /.codegraph
+
+# Generated manual-deployment artifacts
+/exports/
