@@ -9,11 +9,11 @@ const PROJECT_SEEDS: readonly { repo: string; language: string; description: Rec
     es: "Plataforma de agentes de IA con Next.js, Prisma, PostgreSQL y Supabase, desplegada en Vercel y Render.",
     en: "AI agent platform with Next.js, Prisma, PostgreSQL and Supabase, deployed on Vercel and Render." } },
   { repo: "crm_creator", language: "TypeScript", description: {
-    es: "CRM Studio: CRM modular para distintos negocios con Next.js, Express y Prisma, con tests E2E en Playwright.",
-    en: "CRM Studio: modular CRM for different businesses with Next.js, Express and Prisma, with Playwright E2E tests." } },
+    es: "CRM Studio: CRM modular para distintos negocios con Next.js, Express y Prisma, desplegado en Vercel y Render, con tests E2E en Playwright.",
+    en: "CRM Studio: modular CRM for different businesses with Next.js, Express and Prisma, deployed on Vercel and Render, with Playwright E2E tests." } },
   { repo: "gru_orchestrator", language: "TypeScript", description: {
-    es: "Orquestador de agentes de IA en TypeScript, Python y Node.js, con tests unitarios en Vitest.",
-    en: "AI agent orchestrator in TypeScript, Python and Node.js, with Vitest unit tests." } },
+    es: "Orquestador de agentes de IA en TypeScript y Node.js, con aprobación humana en acciones de riesgo y tests en Vitest.",
+    en: "AI agent orchestrator in TypeScript and Node.js, with human approval for risky actions and Vitest tests." } },
   { repo: "nexus", language: "Python", description: {
     es: "Asistente personal con IA y arquitectura RAG: FastAPI, PostgreSQL, pgvector y búsqueda semántica.",
     en: "AI personal assistant with a RAG architecture: FastAPI, PostgreSQL, pgvector and semantic search." } },

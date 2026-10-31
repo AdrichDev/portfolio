@@ -20,11 +20,11 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "Freelance · Clientes y proyectos propios",
       location: "Madrid, España",
       bullets: [
-        "Agents Agency: plataforma de agentes de IA con Next.js, Prisma, PostgreSQL y Supabase, desplegada en Vercel y Render. Tests de backend con Vitest.",
-        "CRM Studio: CRM modular para distintos negocios con Next.js, Express, Prisma y PostgreSQL sobre Supabase. Tests E2E con Playwright de autenticación, navegación y gestión de clientes.",
-        "Web Noel Martín: web profesional de un ciclista olímpico con React 19 y Tailwind CSS v4 en Cloudflare Workers, validada en responsive y entre dispositivos.",
-        "Gru Orchestrator: orquestador de agentes de IA en TypeScript, Python y Node.js, con tests unitarios de clasificación de tareas, riesgos y casos límite.",
-        "Nexus: asistente personal con IA y arquitectura RAG (Python/FastAPI, PostgreSQL, pgvector y embeddings), con tests unitarios y end-to-end.",
+        "Agents Agency: plataforma de agentes de IA con Next.js, Prisma, PostgreSQL y Supabase, desplegada en Vercel y Render. Tests de backend con Vitest y E2E con Playwright.",
+        "CRM Studio: CRM modular para distintos negocios con Next.js, Express, Prisma y PostgreSQL sobre Supabase, desplegado en Vercel y Render. Tests E2E con Playwright de aislamiento entre negocios, borrado lógico, citas y onboarding.",
+        "Web Noel Martín: web profesional de un ciclista olímpico con React 19 y Tailwind CSS v4 en Cloudflare Workers, con 32 tests automáticos y validada en responsive y entre dispositivos.",
+        "Gru Orchestrator: orquestador de agentes de IA en TypeScript y Node.js, con aprobación humana en acciones de riesgo y tests unitarios de clasificación de tareas, riesgos y casos límite.",
+        "Nexus: asistente personal con IA y arquitectura RAG (Python/FastAPI, PostgreSQL, pgvector y embeddings), arquitectura en capas, SDD, TDD y ODD, con tests unitarios y end-to-end.",
       ],
     },
     {
@@ -76,11 +76,11 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "Freelance · Clients and own projects",
       location: "Madrid, Spain",
       bullets: [
-        "Agents Agency: AI agent platform built with Next.js, Prisma, PostgreSQL and Supabase, deployed on Vercel and Render. Backend tests with Vitest.",
-        "CRM Studio: modular CRM for different businesses with Next.js, Express, Prisma and PostgreSQL on Supabase. Playwright E2E tests for authentication, navigation and client management.",
-        "Web Noel Martín: professional website for an Olympic cyclist with React 19 and Tailwind CSS v4 on Cloudflare Workers, validated for responsive design and across devices.",
-        "Gru Orchestrator: AI agent orchestrator in TypeScript, Python and Node.js, with unit tests for task classification, risk assessment and edge cases.",
-        "Nexus: AI personal assistant with a RAG architecture (Python/FastAPI, PostgreSQL, pgvector and embeddings), with unit and end-to-end tests.",
+        "Agents Agency: AI agent platform built with Next.js, Prisma, PostgreSQL and Supabase, deployed on Vercel and Render. Backend tests with Vitest and E2E with Playwright.",
+        "CRM Studio: modular CRM for different businesses with Next.js, Express, Prisma and PostgreSQL on Supabase, deployed on Vercel and Render. Playwright E2E tests for isolation between businesses, soft delete, appointments and onboarding.",
+        "Web Noel Martín: professional website for an Olympic cyclist with React 19 and Tailwind CSS v4 on Cloudflare Workers, with 32 automated tests and validated for responsive design and across devices.",
+        "Gru Orchestrator: AI agent orchestrator in TypeScript and Node.js, with human approval for risky actions and unit tests for task classification, risk assessment and edge cases.",
+        "Nexus: AI personal assistant with a RAG architecture (Python/FastAPI, PostgreSQL, pgvector and embeddings), layered architecture, SDD, TDD and ODD, with unit and end-to-end tests.",
       ],
     },
     {
