@@ -3,6 +3,7 @@ import type { TimelineEntry } from "@/shared/types/timeline";
 
 /**
  * Real work history, newest first, in every supported language.
+ * Source: the Full Stack and QA versions of the CV (October 2026), merged.
  *
  * Layout constraint on `period`: it renders in Press Start 2P, which is
  * strictly monospaced at a 1em advance, inside a `sm:w-48` (192px) column at
@@ -13,18 +14,33 @@ import type { TimelineEntry } from "@/shared/types/timeline";
 export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
   es: [
     {
+      id: "freelance",
+      period: "01/2025 – Hoy",
+      title: "Desarrollador Full Stack y QA",
+      subtitle: "Freelance · Proyectos propios",
+      location: "Madrid, España",
+      bullets: [
+        "Agents Agency: plataforma de agentes de IA con Next.js, Prisma, PostgreSQL y Supabase, desplegada en Vercel y Render. Tests de backend con Vitest.",
+        "CRM Studio: CRM modular para distintos negocios con Next.js, Express, Prisma y PostgreSQL sobre Supabase. Tests E2E con Playwright de autenticación, navegación y gestión de clientes.",
+        "Web Noel Martín: web profesional de un ciclista olímpico con React 19 y Tailwind CSS v4 en Cloudflare Workers, validada en responsive y entre dispositivos.",
+        "Gru Orchestrator: orquestador de agentes de IA en TypeScript, Python y Node.js, con tests unitarios de clasificación de tareas, riesgos y casos límite.",
+        "Nexus: asistente personal con IA y arquitectura RAG (Python/FastAPI, PostgreSQL, pgvector y embeddings), con tests unitarios y end-to-end.",
+      ],
+    },
+    {
       id: "excelia",
       period: "02/2026 – 06/2026",
-      title: "Software Developer",
+      title: "Desarrollador Full Stack y QA",
       subtitle: "EXCELIA · Contrato de prácticas",
       location: "Pozuelo de Alarcón, Madrid, España",
       bullets: [
-        "Análisis, desarrollo y mejora de aplicaciones web para la gestión de imputación de horas.",
-        "Desarrollo frontend con React, Next.js, TypeScript y Tailwind CSS, centrado en la experiencia de usuario.",
-        "Integración con Power Apps, Power Pages, Dataverse y Power Automate, junto a Navision y Business Central.",
-        "Backend: lógica de negocio, flujos de aprobación, automatizaciones con Jobs y Crons y colas con RabbitMQ.",
-        "Metodologías ágiles (Scrum y Kanban), gestión y automatización de tareas en Jira y comunicación en Teams.",
-        "Uso supervisado y orquestado de IA en el ciclo de vida del software (GPT, Claude, Gemini, agentes, workflows y SDD).",
+        "Análisis, desarrollo, migración y mejora de aplicaciones web para la gestión de imputación de horas y proyectos.",
+        "Frontend con React, Next.js, TypeScript y Tailwind CSS; backend con Node.js, Express, Prisma ORM y PostgreSQL.",
+        "Integración con Power Apps, Power Pages, Dataverse Web API y Power Automate, junto a Navision y Business Central.",
+        "Automatizaciones con Jobs y Crons, y procesos asíncronos con RabbitMQ.",
+        "Diseño y ejecución de pruebas funcionales y validación de la integridad de los datos durante la migración.",
+        "Automatización de pruebas E2E con Cypress y escenarios BDD con Cucumber sobre los criterios de aceptación.",
+        "Orquestación de agentes de IA en el ciclo de vida del software: tickets en Jira, SDD, ODD y versionado en Bitbucket.",
       ],
     },
     {
@@ -34,9 +50,8 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "DOMUSVI (SAD Ayto. de Madrid)",
       location: "Madrid, España",
       bullets: [
-        "Coordinación y gestión eficiente de urgencias e incidencias.",
-        "Liderazgo y supervisión de equipos, impulsando un clima de trabajo colaborativo.",
-        "Elaboración y control de cuadrantes, fomentando la conciliación.",
+        "Liderazgo de un equipo de 60 profesionales y gestión integral de incidencias críticas.",
+        "Planificación y optimización de recursos mediante cuadrantes y turnos del personal.",
         "Coordinación con entidades públicas para la correcta implementación de los servicios.",
       ],
     },
@@ -47,26 +62,41 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "ESSIP – MUNDOMAYOR",
       location: "Madrid, España",
       bullets: [
-        "Orientación y asesoramiento sobre recursos públicos y privados dirigidos a personas mayores.",
-        "Coordinación y supervisión de entidades colaboradoras, y trabajo conjunto con servicios sociales y otras entidades públicas.",
-        "Gestión de base de datos y herramientas de CRM, optimizando procesos y mejorando la experiencia de los usuarios.",
+        "Asesoramiento sobre recursos públicos y privados para personas mayores.",
+        "Coordinación interinstitucional con entidades públicas y resolución de situaciones complejas bajo presión.",
+        "Gestión de base de datos y herramientas de CRM, optimizando procesos y la experiencia de los usuarios.",
       ],
     },
   ],
   en: [
     {
+      id: "freelance",
+      period: "01/2025 – Now",
+      title: "Full Stack Developer & QA",
+      subtitle: "Freelance · Own projects",
+      location: "Madrid, Spain",
+      bullets: [
+        "Agents Agency: AI agent platform built with Next.js, Prisma, PostgreSQL and Supabase, deployed on Vercel and Render. Backend tests with Vitest.",
+        "CRM Studio: modular CRM for different businesses with Next.js, Express, Prisma and PostgreSQL on Supabase. Playwright E2E tests for authentication, navigation and client management.",
+        "Web Noel Martín: professional website for an Olympic cyclist with React 19 and Tailwind CSS v4 on Cloudflare Workers, validated for responsive design and across devices.",
+        "Gru Orchestrator: AI agent orchestrator in TypeScript, Python and Node.js, with unit tests for task classification, risk assessment and edge cases.",
+        "Nexus: AI personal assistant with a RAG architecture (Python/FastAPI, PostgreSQL, pgvector and embeddings), with unit and end-to-end tests.",
+      ],
+    },
+    {
       id: "excelia",
       period: "02/2026 – 06/2026",
-      title: "Software Developer",
+      title: "Full Stack Developer & QA",
       subtitle: "EXCELIA · Internship",
       location: "Pozuelo de Alarcón, Madrid, Spain",
       bullets: [
-        "Analysis, development and improvement of web applications for time-tracking management.",
-        "Frontend development with React, Next.js, TypeScript and Tailwind CSS, focused on user experience.",
-        "Integration with Power Apps, Power Pages, Dataverse and Power Automate, alongside Navision and Business Central.",
-        "Backend: business logic, approval flows, automations with Jobs and Crons, and queues with RabbitMQ.",
-        "Agile methodologies (Scrum and Kanban), task management and automation in Jira, and communication in Teams.",
-        "Supervised, orchestrated use of AI across the software lifecycle (GPT, Claude, Gemini, agents, workflows and SDD).",
+        "Analysis, development, migration and improvement of web applications for time-tracking and project management.",
+        "Frontend with React, Next.js, TypeScript and Tailwind CSS; backend with Node.js, Express, Prisma ORM and PostgreSQL.",
+        "Integration with Power Apps, Power Pages, Dataverse Web API and Power Automate, alongside Navision and Business Central.",
+        "Automations with Jobs and Crons, and asynchronous processes with RabbitMQ.",
+        "Design and execution of functional tests and data integrity validation during the migration.",
+        "E2E test automation with Cypress and BDD scenarios with Cucumber based on acceptance criteria.",
+        "AI agent orchestration across the software lifecycle: Jira tickets, SDD, ODD and versioning in Bitbucket.",
       ],
     },
     {
@@ -76,9 +106,8 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "DOMUSVI (Madrid City Council home care)",
       location: "Madrid, Spain",
       bullets: [
-        "Efficient coordination and handling of emergencies and incidents.",
-        "Team leadership and supervision, fostering a collaborative work environment.",
-        "Preparing and managing staff rotas, supporting work-life balance.",
+        "Led a team of 60 professionals and handled critical incidents end to end.",
+        "Resource planning and optimisation through staff rotas and shift scheduling.",
         "Coordination with public bodies to ensure services were delivered correctly.",
       ],
     },
@@ -89,9 +118,9 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "ESSIP – MUNDOMAYOR",
       location: "Madrid, Spain",
       bullets: [
-        "Guidance and advice on public and private resources for older people.",
-        "Coordination and supervision of partner organisations, working jointly with social services and other public bodies.",
-        "Database and CRM tool management, optimising processes and improving the user experience.",
+        "Advice on public and private resources for older people.",
+        "Inter-agency coordination with public bodies and handling complex situations under pressure.",
+        "Database and CRM tool management, optimising processes and the user experience.",
       ],
     },
   ],
@@ -110,7 +139,7 @@ export const EDUCATION_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
     {
       id: "dam",
       period: "09/2024 – 06/2026",
-      title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+      title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
       subtitle: "FP Tech Hub Euroformac",
       location: "Madrid, España",
     },
@@ -133,7 +162,7 @@ export const EDUCATION_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
     {
       id: "dam",
       period: "09/2024 – 06/2026",
-      title: "Higher Technical Diploma in Cross-Platform Application Development",
+      title: "Higher Technical Diploma in Cross-Platform Application Development (DAM)",
       subtitle: "FP Tech Hub Euroformac",
       location: "Madrid, Spain",
     },

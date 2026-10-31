@@ -25,7 +25,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 const PAGE_TITLE = `${PROFILE.name} — ${PROFILE.role}`;
 
 const PAGE_DESCRIPTION =
-  "Portfolio de Adrián Chozas Vinuesa, Software Developer en Madrid. Trabajador Social durante más de 12 años, ahora centrado en React, Next.js, TypeScript, Tailwind CSS, IA y Power Platform.";
+  "Portfolio de Adrián Chozas Vinuesa, Desarrollador Full Stack y QA en Madrid. React, Next.js, TypeScript, Java, Python, testing con Playwright y Cypress, y orquestación de agentes de IA.";
 
 // A portable export has no public host until uploaded. Omit absolute previews
 // rather than publishing localhost; set NEXT_PUBLIC_SITE_URL when the host is known.

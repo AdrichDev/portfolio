@@ -539,3 +539,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible { outline:2px solid v
 .language-select select:focus-visible { outline:2px solid var(--color-signal-amber); outline-offset:3px; }
 .language-select option { background:#1d1030; color:var(--color-phosphor); }
 @media (max-width:600px) { .language-select select { font-size:7px; padding:6px 20px 6px 8px; } .language-select::after { right:6px; } }
+/* Arcade "PRESS START": hard on/off blink, like the attract mode of a cabinet. */
+.arcade-hard-blink { animation:arcade-hard-blink 1s steps(1,end) infinite; }
+@keyframes arcade-hard-blink { 0%,55% { opacity:1; } 56%,100% { opacity:0; } }
+@media (prefers-reduced-motion:reduce) { .arcade-hard-blink { animation:none!important; opacity:1; } }
