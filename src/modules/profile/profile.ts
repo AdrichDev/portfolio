@@ -43,7 +43,7 @@ export const PROFILES: Record<Lang, Profile> = {
     role: "Desarrollador Full Stack",
     location: "Madrid, España",
     tagline:
-      "Nueva partida. La misma misión: ayudar a resolver problemas a las personas. Tras más de 12 años en trabajo social, ahora construyo mi camino en el software.",
+      "Nueva partida, la misma misión: llevo más de 12 años resolviendo problemas de personas. Ahora también lo hago desarrollando software.",
     portrait: {
       src: "/adrian-chozas.jpg",
       alt: "Fotografía de perfil de Adrián Chozas Vinuesa, desarrollador Full Stack.",
@@ -51,8 +51,8 @@ export const PROFILES: Record<Lang, Profile> = {
     },
     bio: [
       "Desarrollador Full Stack con experiencia en React, Next.js, TypeScript, Java, Python y SQL. Me especializo en integrar y orquestar agentes de IA con herramientas como Gentle-AI y enfoques SDD y ODD, diseñando flujos multiagente que cubren todo el ciclo de desarrollo: requisitos, arquitectura, implementación, testing y despliegue.",
-      "La calidad forma parte de mi forma de trabajar. En EXCELIA desarrollé aplicaciones web con React, Next.js, Node.js y Power Platform, y además diseñé pruebas funcionales y automaticé flujos E2E con Cypress y Cucumber (BDD). En mis proyectos propios cubro el código con tests unitarios y end-to-end con Vitest y Playwright.",
-      "Antes del software fui Trabajador Social durante más de 12 años, coordinando equipos de hasta 60 profesionales y resolviendo incidencias complejas bajo presión. De esa etapa traigo lo que más valoro: escuchar antes de construir, entender a quién va dirigido cada producto y resolver los problemas en cuanto aparecen.",
+      "La calidad forma parte de mi forma de trabajar. En EXCELIA participé en la migración y el desarrollo de dos aplicaciones de imputación de horas que hoy están en producción, con React, Next.js, Node.js y Power Platform, y además diseñé pruebas funcionales y automaticé flujos E2E con Cypress y Cucumber (BDD). En mis proyectos propios cubro el código con tests unitarios y end-to-end con Vitest y Playwright.",
+      "Antes del software fui Trabajador Social durante más de 12 años, coordinando equipos de hasta 60 profesionales y resolviendo incidencias complejas bajo presión. De esa etapa traigo lo que más valoro: por mucha tecnología que utilicemos, al otro lado siempre hay una persona. Por eso escucho antes de construir y resuelvo los problemas en cuanto aparecen.",
       "Terminé el Grado Superior en Desarrollo de Aplicaciones Multiplataforma en junio de 2026 y curso un Máster en Desarrollo con Inteligencia Artificial. Alegre, entusiasta y en formación constante.",
     ],
   },
@@ -61,7 +61,7 @@ export const PROFILES: Record<Lang, Profile> = {
     role: "Full Stack Developer",
     location: "Madrid, Spain",
     tagline:
-      "New game. Same mission: helping people solve their problems. After more than 12 years in social work, I am now building my path in software.",
+      "New game, same mission: I have spent more than 12 years solving people's problems. Now I also do it by building software.",
     portrait: {
       src: "/adrian-chozas.jpg",
       alt: "Profile photo of Adrián Chozas Vinuesa, Full Stack developer.",
@@ -69,8 +69,8 @@ export const PROFILES: Record<Lang, Profile> = {
     },
     bio: [
       "Full Stack developer with experience in React, Next.js, TypeScript, Java, Python and SQL. I specialise in integrating and orchestrating AI agents with tools such as Gentle-AI and SDD and ODD approaches, designing multi-agent workflows that cover the whole development cycle: requirements, architecture, implementation, testing and deployment.",
-      "Quality is part of the way I work. At EXCELIA I built web applications with React, Next.js, Node.js and Power Platform, and I also designed functional tests and automated E2E flows with Cypress and Cucumber (BDD). In my own projects I cover the code with unit and end-to-end tests using Vitest and Playwright.",
-      "Before software I was a social worker for more than 12 years, coordinating teams of up to 60 professionals and solving complex incidents under pressure. From that stage I bring what I value most: listening before building, understanding who each product is for and solving problems as soon as they appear.",
+      "Quality is part of the way I work. At EXCELIA I took part in migrating and building two time-tracking applications that are now in production, using React, Next.js, Node.js and Power Platform, and I also designed functional tests and automated E2E flows with Cypress and Cucumber (BDD). In my own projects I cover the code with unit and end-to-end tests using Vitest and Playwright.",
+      "Before software I was a social worker for more than 12 years, coordinating teams of up to 60 professionals and solving complex incidents under pressure. From that stage I bring what I value most: however much technology we use, there is always a person on the other side. That is why I listen before building and solve problems as soon as they appear.",
       "I completed the Higher Technical Diploma in Cross-Platform Application Development in June 2026 and I am studying a Master's in Development with Artificial Intelligence. Cheerful, enthusiastic and always learning.",
     ],
   },

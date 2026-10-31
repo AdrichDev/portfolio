@@ -44,7 +44,7 @@ export const MESSAGES: Record<Lang, Messages> = {
     contact: {
       kicker: "Fase 04",
       title: "Modo cooperativo",
-      text: "La próxima aventura se construye en equipo. Si buscas un perfil de desarrollador con vocación por las personas y ganas de seguir creciendo, hablemos.",
+      text: "No busco únicamente un nuevo puesto de trabajo. Busco formar parte de un equipo con el que aprender, afrontar retos y aportar una perspectiva diferente, tanto técnica como humana. Me encantaría conoceros y charlar sobre vuestros proyectos.",
     },
     notFound: { title: "404 · Nivel no encontrado", home: "Volver al inicio" },
   },
@@ -70,7 +70,7 @@ export const MESSAGES: Record<Lang, Messages> = {
     contact: {
       kicker: "Stage 04",
       title: "Co-op Mode",
-      text: "The next adventure is built as a team. If you are looking for a developer with a calling for people and the drive to keep growing, let's talk.",
+      text: "I am not just looking for a new job. I am looking to join a team where I can learn, take on challenges and bring a different perspective, both technical and human. I would love to meet you and talk about your projects.",
     },
     notFound: { title: "404 · Level not found", home: "Back to start" },
   },

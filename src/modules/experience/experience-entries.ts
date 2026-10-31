@@ -17,7 +17,7 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       id: "freelance",
       period: "01/2025 – Hoy",
       title: "Desarrollador Full Stack y QA",
-      subtitle: "Freelance · Proyectos propios",
+      subtitle: "Freelance · Clientes y proyectos propios",
       location: "Madrid, España",
       bullets: [
         "Agents Agency: plataforma de agentes de IA con Next.js, Prisma, PostgreSQL y Supabase, desplegada en Vercel y Render. Tests de backend con Vitest.",
@@ -34,7 +34,7 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "EXCELIA · Contrato de prácticas",
       location: "Pozuelo de Alarcón, Madrid, España",
       bullets: [
-        "Análisis, desarrollo, migración y mejora de aplicaciones web para la gestión de imputación de horas y proyectos.",
+        "Migración y desarrollo de dos aplicaciones web de imputación de horas y proyectos que hoy están en producción.",
         "Frontend con React, Next.js, TypeScript y Tailwind CSS; backend con Node.js, Express, Prisma ORM y PostgreSQL.",
         "Integración con Power Apps, Power Pages, Dataverse Web API y Power Automate, junto a Navision y Business Central.",
         "Automatizaciones con Jobs y Crons, y procesos asíncronos con RabbitMQ.",
@@ -73,7 +73,7 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       id: "freelance",
       period: "01/2025 – Now",
       title: "Full Stack Developer & QA",
-      subtitle: "Freelance · Own projects",
+      subtitle: "Freelance · Clients and own projects",
       location: "Madrid, Spain",
       bullets: [
         "Agents Agency: AI agent platform built with Next.js, Prisma, PostgreSQL and Supabase, deployed on Vercel and Render. Backend tests with Vitest.",
@@ -90,7 +90,7 @@ export const WORK_TIMELINE: Record<Lang, readonly TimelineEntry[]> = {
       subtitle: "EXCELIA · Internship",
       location: "Pozuelo de Alarcón, Madrid, Spain",
       bullets: [
-        "Analysis, development, migration and improvement of web applications for time-tracking and project management.",
+        "Migration and development of two time-tracking and project management web applications that are now in production.",
         "Frontend with React, Next.js, TypeScript and Tailwind CSS; backend with Node.js, Express, Prisma ORM and PostgreSQL.",
         "Integration with Power Apps, Power Pages, Dataverse Web API and Power Automate, alongside Navision and Business Central.",
         "Automations with Jobs and Crons, and asynchronous processes with RabbitMQ.",
